@@ -10,6 +10,11 @@ defmodule ElementWithSelectorsTest do
   end
 
 
+  test "should get selected element's visible text properly utf-encoded" do
+    navigate_to "http://localhost:9090/page_utf.html"
+    assert visible_text({:class, "example"}) == "This is UTF: zażółć gęślą jaźń"
+  end
+
   test "should input value into field, when selector is passed" do
     navigate_to "http://localhost:9090/page1.html"
 
